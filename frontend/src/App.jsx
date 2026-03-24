@@ -1,20 +1,25 @@
-import { useEffect, useState } from 'react'
-import api from './services/api'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import Home from './pages/Home'
+import Servicios from './pages/Servicios'
+import Blog from './pages/Blog'
+import Organigrama from './pages/Organigrama'
+import Tips from './pages/Tips'
 
 function App() {
-  const [mensaje, setMensaje] = useState('Cargando...')
-
-  useEffect(() => {
-    api.get('/')
-      .then(res => setMensaje(res.data.mensaje))
-      .catch(() => setMensaje('Error al conectar con el backend'))
-  }, [])
-
   return (
-    <div style={{ textAlign: 'center', marginTop: '100px' }}>
-      <h1>Mi Consultoría</h1>
-      <p>Mensaje del backend: <strong>{mensaje}</strong></p>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/servicios" element={<Servicios />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/organigrama" element={<Organigrama />} />
+        <Route path="/tips" element={<Tips />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   )
 }
 
