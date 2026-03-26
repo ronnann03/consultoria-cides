@@ -19,6 +19,20 @@ function App() {
         <Route path="/tips" element={<Tips />} />
       </Routes>
       <Footer />
+
+      {/* WHATSAPP FLOTANTE */}
+      <a href="https://wa.me/51900000000" target="_blank" style={{
+        position: 'fixed', bottom: '2rem', right: '2rem',
+        width: '58px', height: '58px', borderRadius: '50%',
+        background: '#25D366', display: 'flex',
+        alignItems: 'center', justifyContent: 'center',
+        fontSize: '1.8rem', zIndex: 999,
+        boxShadow: '0 4px 20px rgba(37,211,102,0.5)',
+        textDecoration: 'none',
+        animation: 'pulse 2s infinite'
+      }}>
+        💬
+      </a>
     </BrowserRouter>
   )
 }

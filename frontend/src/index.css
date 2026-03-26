@@ -16,3 +16,8 @@ body {
   background: var(--blanco);
   color: var(--texto);
 }
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); }
+  50% { box-shadow: 0 4px 35px rgba(37,211,102,0.9); }
+}
