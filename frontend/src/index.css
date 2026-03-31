@@ -1,18 +1,36 @@
+/* ── Variables globales ── */
 :root {
-  --morado: #4A0E8F;
-  --morado-claro: #7B2FBE;
-  --amarillo: #F5C518;
-  --amarillo-claro: #FFD740;
-  --blanco: #FFFFFF;
-  --gris-claro: #F8F6FF;
-  --texto: #1A1A2E;
-  --muted: #6B6B8A;
+  --morado:        #4A0E8F;
+  --morado-claro:  #7B2FBE;
+  --amarillo:      #F5C518;
+  --amarillo-claro:#FFD740;
+  --blanco:        #FFFFFF;
+  --gris-claro:    #F8F6FF;
+  --texto:         #1A1A2E;
+  --muted:         #6B6B8A;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* ── Reset global ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow-x: hidden;
+}
 
 body {
   font-family: 'Segoe UI', sans-serif;
   background: var(--blanco);
   color: var(--texto);
+  overflow-x: hidden;
+  width: 100%;
+  min-width: 0;
+}
+
+#root {
+  overflow-x: hidden;
+  width: 100%;
 }

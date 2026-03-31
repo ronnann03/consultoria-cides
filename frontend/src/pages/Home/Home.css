@@ -1,0 +1,249 @@
+/* ── Reset base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* ── Animaciones ── */
+@keyframes heroText {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroForm {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(245,197,24,0.5); }
+  50%      { box-shadow: 0 0 0 10px rgba(245,197,24,0); }
+}
+
+/* ── Hero ── */
+.hero-section {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  padding: 7rem 5% 4rem;
+  position: relative;
+  overflow: hidden;
+ 
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-text {
+  animation: heroText 0.9s ease both;
+}
+
+.hero-title {
+  font-family: Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  color: var(--blanco);
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+}
+
+.hero-subtitle {
+  font-family: Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--amarillo);
+  line-height: 1.2;
+}
+
+.hero-form {
+  animation: heroForm 0.9s 0.2s ease both;
+  background: rgba(255,255,255,0.97);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  width: 100%;
+  min-width: 0;
+}
+
+.hero-form input,
+.hero-form select {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.hero-form select {
+  color: #888;
+}
+
+.hero-form input:focus,
+.hero-form select:focus {
+  border-color: var(--morado);
+  box-shadow: 0 0 0 3px rgba(74,14,143,0.12);
+}
+
+.whatsapp-input-wrap {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.whatsapp-input-wrap .prefix {
+  padding: 0.9rem;
+  background: #f5f5f5;
+  border-right: 1px solid #e0e0e0;
+  font-size: 0.9rem;
+  color: #555;
+  white-space: nowrap;
+}
+
+.whatsapp-input-wrap input {
+  flex: 1;
+  border: none !important;
+  box-shadow: none !important;
+  min-width: 0;
+}
+
+/* ── Stats ── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 3rem 5%;
+  gap: 2rem;
+  text-align: center;
+  background: var(--texto);
+}
+
+.stats-num {
+  font-family: Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--amarillo);
+  display: block;
+}
+
+.stats-label {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+}
+
+/* ── Servicios ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.service-card {
+  background: var(--blanco);
+  padding: 2rem;
+  border-left: 4px solid var(--amarillo);
+  box-shadow: 0 4px 20px rgba(74,14,143,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 2px;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(74,14,143,0.18);
+}
+
+/* ── Testimonios ── */
+.testimonios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.testimonio-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(245,197,24,0.3);
+  padding: 1.8rem;
+  border-radius: 4px;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.testimonio-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.13);
+}
+
+/* ── Botones ── */
+.send-btn {
+  background: var(--morado);
+  color: var(--blanco);
+  padding: 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  transition: background 0.2s, transform 0.15s;
+  width: 100%;
+  font-family: inherit;
+}
+
+.send-btn:hover  { background: var(--morado-claro); transform: scale(1.02); }
+.send-btn:active { transform: scale(0.98); }
+
+.whatsapp-btn {
+  background: var(--morado);
+  color: var(--blanco);
+  padding: 1rem 2.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 4px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: pulse 2.5s infinite;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(74,14,143,0.35);
+}
+
+/* ── Títulos de sección ── */
+.section-title {
+  font-family: Georgia, serif;
+  font-size: 2.5rem;
+}
+
+/* ── Responsive: Tablet ── */
+@media (max-width: 900px) {
+  .hero-grid          { grid-template-columns: 1fr; }
+  .stats-grid         { grid-template-columns: repeat(2, 1fr); }
+  .services-grid      { grid-template-columns: repeat(2, 1fr); }
+  .testimonios-grid   { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── Responsive: Móvil ── */
+@media (max-width: 560px) {
+  .hero-section     { padding: 6rem 5% 3rem; }
+  .hero-title       { font-size: clamp(1.6rem, 7vw, 2.5rem); }
+  .hero-subtitle    { font-size: clamp(1.2rem, 5vw, 1.8rem); }
+  .section-title    { font-size: 1.9rem; }
+  .stats-grid       { grid-template-columns: 1fr 1fr; }
+  .services-grid    { grid-template-columns: 1fr; }
+  .testimonios-grid { grid-template-columns: 1fr; }
+}

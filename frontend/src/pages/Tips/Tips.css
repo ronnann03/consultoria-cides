@@ -1,0 +1,310 @@
+/* ── Animaciones ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes lineGrow {
+  from { width: 0; }
+  to   { width: 60px; }
+}
+
+/* ══ HERO ══ */
+.tips-hero {
+  background: var(--texto);
+  padding: 8rem 5% 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.tips-hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(74,14,143,0.5) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.tips-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: 10%;
+  width: 260px; height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,197,24,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.tips-hero-inner {
+  max-width: 760px;
+  position: relative;
+  z-index: 2;
+  animation: fadeUp 0.8s ease both;
+}
+
+.tips-hero-tag {
+  display: inline-block;
+  background: rgba(245,197,24,0.15);
+  border: 1px solid rgba(245,197,24,0.4);
+  color: var(--amarillo);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 0.35rem 0.9rem;
+  border-radius: 2px;
+  margin-bottom: 1.2rem;
+}
+
+.tips-hero h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--blanco);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.tips-hero h1 em {
+  color: var(--amarillo);
+  font-style: italic;
+}
+
+.tips-hero p {
+  color: rgba(255,255,255,0.6);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 580px;
+}
+
+/* ══ FILTROS ══ */
+.tips-filters {
+  background: var(--blanco);
+  padding: 2rem 5%;
+  border-bottom: 1px solid rgba(74,14,143,0.1);
+  position: sticky;
+  top: 62px;
+  z-index: 50;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.tips-filters-inner {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-btn {
+  padding: 0.45rem 1.1rem;
+  border-radius: 2px;
+  border: 1.5px solid #e0e0e0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  border-color: var(--morado);
+  color: var(--morado);
+}
+
+.filter-btn.active {
+  background: var(--morado);
+  border-color: var(--morado);
+  color: var(--blanco);
+}
+
+/* ══ GRID DE TIPS ══ */
+.tips-section {
+  padding: clamp(3rem, 7vw, 5rem) 5%;
+  background: var(--gris-claro);
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Card ── */
+.tip-card {
+  background: var(--blanco);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(74,14,143,0.07);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.tip-card.visible {
+  animation: fadeUp 0.6s ease both;
+}
+
+.tip-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(74,14,143,0.15);
+}
+
+.tip-card-accent {
+  height: 4px;
+  background: var(--amarillo);
+}
+
+.tip-card-accent.morado { background: var(--morado); }
+.tip-card-accent.verde  { background: #2ECC71; }
+.tip-card-accent.azul   { background: #3498DB; }
+.tip-card-accent.rojo   { background: #E74C3C; }
+
+.tip-card-body {
+  padding: 1.6rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tip-card-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.tip-card-cat {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--morado-claro);
+  margin-bottom: 0.5rem;
+}
+
+.tip-card h3 {
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
+  color: var(--texto);
+  line-height: 1.4;
+  margin-bottom: 0.8rem;
+}
+
+.tip-card p {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.75;
+  flex: 1;
+}
+
+.tip-card-footer {
+  padding: 1rem 1.6rem;
+  border-top: 1px solid rgba(74,14,143,0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tip-num {
+  font-family: Georgia, serif;
+  font-size: 0.75rem;
+  color: rgba(74,14,143,0.3);
+  font-weight: 700;
+}
+
+.tip-tag {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+  background: rgba(74,14,143,0.08);
+  color: var(--morado);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* ══ BANNER CTA ══ */
+.tips-cta {
+  background: var(--morado);
+  padding: clamp(3rem, 6vw, 5rem) 5%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.tips-cta::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 350px; height: 350px;
+  border-radius: 50%;
+  background: rgba(245,197,24,0.07);
+  pointer-events: none;
+}
+
+.tips-cta h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--blanco);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.tips-cta h2 em { color: var(--amarillo); }
+
+.tips-cta p {
+  color: rgba(255,255,255,0.65);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tips-cta-btn {
+  display: inline-block;
+  background: var(--amarillo);
+  color: var(--morado);
+  padding: 0.9rem 2.2rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-transform: uppercase;
+}
+
+.tips-cta-btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+
+/* ══ RESPONSIVE ══ */
+@media (max-width: 900px) {
+  .tips-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .tips-filters {
+    top: 56px;
+  }
+}
+
+@media (max-width: 560px) {
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+  .tips-filters-inner {
+    gap: 0.4rem;
+  }
+  .filter-btn {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+}

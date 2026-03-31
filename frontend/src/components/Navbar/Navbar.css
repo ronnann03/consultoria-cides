@@ -1,0 +1,300 @@
+/* ── Animaciones ── */
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dropUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════
+   NAVBAR DESKTOP
+══════════════════════════════ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 5%;
+  background: var(--morado);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+  box-sizing: border-box;
+}
+
+/* ── Logo ── */
+.navbar-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.navbar-logo img {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+}
+
+.navbar-logo-text {
+  font-family: Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--amarillo);
+}
+
+.navbar-logo-text span {
+  color: var(--blanco);
+}
+
+/* ── Links ── */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: var(--blanco);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  font-family: inherit;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--amarillo);
+}
+
+.nav-link .arrow {
+  font-size: 0.65rem;
+  color: var(--amarillo);
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.nav-link.active .arrow {
+  transform: rotate(180deg);
+}
+
+/* ── Dropdown desktop ── */
+.dropdown-wrap {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.8rem);
+  left: 0;
+  background: #2D0F5E;
+  min-width: 260px;
+  list-style: none;
+  padding: 0.4rem 0;
+  margin: 0;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  border-top: 2px solid var(--amarillo);
+  z-index: 200;
+  animation: dropIn 0.2s ease;
+  border-radius: 0 0 4px 4px;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 0.7rem 1.2rem;
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-menu li a:hover {
+  background: rgba(245,197,24,0.15);
+  color: var(--amarillo);
+}
+
+/* ── CTA desktop ── */
+.nav-cta {
+  background: var(--amarillo);
+  color: var(--morado) !important;
+  padding: 0.45rem 1.1rem;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nav-cta:hover { opacity: 0.85; }
+
+/* ══════════════════════════════
+   BARRA MÓVIL — oculta en desktop
+══════════════════════════════ */
+.mobile-nav-bar {
+  display: none;
+}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media (max-width: 900px) {
+
+  /* Ocultar links desktop */
+  .nav-links {
+    display: none;
+  }
+
+  /* Navbar compacto en móvil */
+  .navbar {
+    padding: 0.6rem 4%;
+  }
+
+  .navbar-logo img {
+    height: 34px;
+    width: 34px;
+  }
+
+  .navbar-logo-text {
+    font-size: 1.1rem;
+  }
+
+  /* ── Barra móvil horizontal fija abajo ── */
+  .mobile-nav-bar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--morado);
+    z-index: 100;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Sin border-top para no mostrar línea */
+    box-shadow: 0 -3px 16px rgba(0,0,0,0.25);
+  }
+
+  .mobile-nav-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-nav-inner {
+    display: flex;
+    align-items: stretch;
+    min-width: max-content;
+    padding: 0 0.25rem;
+  }
+
+  .mobile-nav-item {
+    position: relative;
+  }
+
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 0.9rem;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: inherit;
+    transition: color 0.2s, background 0.2s;
+    gap: 0.3rem;
+    border-radius: 0;
+  }
+
+  .mobile-nav-link:hover,
+  .mobile-nav-link.active {
+    color: var(--amarillo);
+    background: rgba(255,255,255,0.06);
+  }
+
+  .mobile-nav-link .mob-arrow {
+    font-size: 0.55rem;
+    color: var(--amarillo);
+    transition: transform 0.2s;
+    display: inline-block;
+  }
+
+  .mobile-nav-link.active .mob-arrow {
+    transform: rotate(180deg);
+  }
+
+  /* Dropdown móvil — sube hacia arriba */
+  .mobile-dropdown {
+    position: absolute;
+    bottom: calc(100% + 2px);
+    left: 0;
+    background: #2D0F5E;
+    min-width: 220px;
+    list-style: none;
+    padding: 0.4rem 0;
+    margin: 0;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+    border-top: 2px solid var(--amarillo);
+    z-index: 300;
+    animation: dropUp 0.2s ease;
+    border-radius: 4px 4px 0 0;
+  }
+
+  .mobile-dropdown li a {
+    display: block;
+    padding: 0.65rem 1rem;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 0.84rem;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .mobile-dropdown li a:hover {
+    background: rgba(245,197,24,0.15);
+    color: var(--amarillo);
+  }
+
+  /* CTA móvil */
+  .mobile-cta-link {
+    background: var(--amarillo) !important;
+    color: var(--morado) !important;
+    border-radius: 4px;
+    margin: auto 0.4rem;
+    font-weight: 700 !important;
+    padding: 0.5rem 0.8rem !important;
+  }
+
+  /* Padding para que el contenido no quede tapado por la barra */
+  body {
+    padding-bottom: 52px;
+  }
+}
